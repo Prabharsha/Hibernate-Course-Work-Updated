@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="programDetailsContext" prefHeight="581.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.regsystem.hibernate.controller.ViewCourseDetailsFormController">
+   <children>
+      <Pane prefHeight="105.0" prefWidth="848.0" style="-fx-background-color: #ff3838;">
+         <children>
+            <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="16.0" layoutY="37.0" onMouseClicked="#goBackOnAction" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #fff200; -fx-background-radius: 10;" text="Back" />
+            <Label layoutX="320.0" layoutY="48.0" text="Program Details" textFill="#030011">
+               <font>
+                  <Font name="Bell MT Bold" size="34.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TabPane layoutX="14.0" layoutY="112.0" prefHeight="460.0" prefWidth="826.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="112.0">
+        <tabs>
+          <Tab text="Registered Details">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="547.0">
+                     <children>
+                        <JFXComboBox focusColor="#00ff45" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="208.0" promptText="Select Program" unFocusColor="RED" />
+                        <TableView layoutX="18.0" layoutY="64.0" prefHeight="346.0" prefWidth="802.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                          <columns>
+                            <TableColumn prefWidth="248.0" text="Student Id" />
+                            <TableColumn prefWidth="352.0" text="Program ID" />
+                              <TableColumn prefWidth="201.0" text="Registered Date" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Program Details">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="365.0" prefWidth="798.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="7.0">
+                          <columns>
+                            <TableColumn prefWidth="163.0" text="Program ID" />
+                            <TableColumn prefWidth="260.0" text="Program Description" />
+                              <TableColumn prefWidth="176.0" text="Duration" />
+                              <TableColumn prefWidth="198.0" text="Fee (LKR)" />
+                          </columns>
+                        </TableView>
+                        <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="377.0" onMouseClicked="#addNewProgramOnAction" prefHeight="31.0" prefWidth="188.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #3ae374;" text="+ Add New Program " />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

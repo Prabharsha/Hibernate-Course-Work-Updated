@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="dashboardContext" prefHeight="671.0" prefWidth="1003.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.regsystem.hibernate.controller.DashBoardFromController">
+   <children>
+      <Pane layoutX="33.0" layoutY="230.0" opacity="0.59" prefHeight="200.0" prefWidth="421.0" style="-fx-background-color: #78e08f; -fx-background-radius: 35;" />
+      <Pane prefHeight="130.0" prefWidth="1003.0" style="-fx-background-color: #1e272e;">
+         <children>
+            <Label layoutX="21.0" layoutY="28.0" prefHeight="50.0" prefWidth="392.0" text="Sipsewana Institute" textFill="#ffd32a">
+               <font>
+                  <Font name="Californian FB Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTime" alignment="CENTER" contentDisplay="CENTER" layoutX="856.0" layoutY="69.0" prefHeight="42.0" prefWidth="138.0" text="00.00.00" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Console" size="20.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="961.0" layoutY="-3.0" onMouseClicked="#exitOnAction" prefHeight="42.0" prefWidth="47.0" style="-fx-background-color: transparent;" text=" ">
+               <graphic>
+                  <FontAwesomeIconView fill="RED" glyphName="TIMES" onMouseClicked="#exitOnAction" size="34" strokeWidth="0.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+      <JFXButton fx:id="btnRegistration" buttonType="RAISED" layoutX="69.0" layoutY="271.0" onMouseClicked="#goToRegistration" prefHeight="43.0" prefWidth="342.0" style="-fx-background-color: #273c75; -fx-background-radius: 15;" text="Registration" textFill="WHITE">
+         <font>
+            <Font name="Courier New Bold" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnViewDetails" buttonType="RAISED" layoutX="69.0" layoutY="351.0" onMouseClicked="#goToViewDetails" prefHeight="43.0" prefWidth="342.0" style="-fx-background-color: #273c75; -fx-background-radius: 15;" text="View  Details" textFill="WHITE">
+         <font>
+            <Font name="Courier New Bold" size="22.0" />
+         </font>
+      </JFXButton>
+      <Pane layoutX="512.0" layoutY="210.0" opacity="0.44" prefHeight="405.0" prefWidth="453.0" style="-fx-background-color: #ffd32a; -fx-background-radius: 30;" />
+      <Pane layoutX="513.0" layoutY="196.0" prefHeight="421.0" prefWidth="453.0">
+         <children>
+            <Label layoutX="24.0" layoutY="70.0" prefHeight="30.0" prefWidth="309.0" text="No. Of Registered Students  : ">
+               <font>
+                  <Font name="Bell MT Bold" size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="103.0" fitWidth="109.0" layoutX="318.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icon/list-icon-1450.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="24.0" layoutY="267.0" prefHeight="30.0" prefWidth="309.0" text="No. Of Available Courses  : ">
+               <font>
+                  <Font name="Bell MT Bold" size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="103.0" fitWidth="109.0" layoutX="331.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icon/registered.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblNoOfRegStudents" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="139.0" prefHeight="67.0" prefWidth="71.0" text="0" textFill="RED">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNoOfCourses" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="342.0" prefHeight="67.0" prefWidth="71.0" text="0" textFill="RED">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
