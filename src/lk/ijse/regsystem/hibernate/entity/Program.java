@@ -1,9 +1,10 @@
 package lk.ijse.regsystem.hibernate.entity;
 
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 public class Program implements SuperEntity {
@@ -12,15 +13,35 @@ public class Program implements SuperEntity {
     private String ProgramName;
     private String Duration;
     private Double Fee;
+    @ManyToMany(mappedBy = "program")
+    private List<Registration> registrationList;
 
     public Program() {
     }
 
     public Program(String id, String programName, String duration, Double fee) {
-        setId(id);
-        setProgramName(programName);
-        setDuration(duration);
-        setFee(fee);
+        Id = id;
+        ProgramName = programName;
+        Duration = duration;
+        Fee = fee;
+    }
+
+    public Program(String id, String programName, String duration, Double fee, List<Registration> registrationList) {
+        Id = id;
+        ProgramName = programName;
+        Duration = duration;
+        Fee = fee;
+        this.registrationList = registrationList;
+    }
+
+    @Override
+    public String toString() {
+        return "Program{" +
+                "Id='" + getId() + '\'' +
+                ", ProgramName='" + getProgramName() + '\'' +
+                ", Duration='" + getDuration() + '\'' +
+                ", Fee=" + getFee() +
+                '}';
     }
 
     public String getId() {
@@ -53,5 +74,13 @@ public class Program implements SuperEntity {
 
     public void setFee(Double fee) {
         Fee = fee;
+    }
+
+    public List<Registration> getRegistrationList() {
+        return registrationList;
+    }
+
+    public void setRegistrationList(List<Registration> registrationList) {
+        this.registrationList = registrationList;
     }
 }

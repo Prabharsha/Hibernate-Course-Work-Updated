@@ -5,9 +5,12 @@ import lk.ijse.regsystem.hibernate.entity.Student;
 import lk.ijse.regsystem.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class StudentDAOImpl implements StudentDAO {
@@ -66,5 +69,17 @@ public class StudentDAOImpl implements StudentDAO {
         transaction.commit();
         session.close();
         return studentList;
+    }
+
+    @Override
+    public int getCount() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("select count(Id) from Student ");
+
+        /*Iterator count = query.iterate();
+        System.out.println(count.next());*/
+        System.out.println();
+        return 0;
     }
 }

@@ -56,18 +56,18 @@ public class RegistrationFormController implements Initializable {
         btnRegister.setDisable(true);
 //initialize cmb
         try {
-            List<StudentDTO> allStudent = studentBO.getAll();
-            List<ProgramDTO> allProgram =  programBO.getAll();
+            List<Student> allStudent = studentBO.getAll();
+            List<Program> allProgram =  programBO.getAll();
 
-            for (StudentDTO studentDTO : allStudent) {
+            for (Student student : allStudent) {
                 allStudentId.add(
-                        studentDTO.getId()
+                        student.getId()
                 );
             }
 
-            for (ProgramDTO programDTO :allProgram){
+            for (Program program:allProgram){
                 allProgramName.add(
-                        programDTO.getProgramName()
+                        program.getProgramName()
                 );
             }
 

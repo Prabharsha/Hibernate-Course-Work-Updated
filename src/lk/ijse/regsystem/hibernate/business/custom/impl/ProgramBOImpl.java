@@ -15,12 +15,12 @@ public class ProgramBOImpl implements ProgramBO {
     ProgramDAOImpl programDAO = DAOFactory.getInstance().getDAO(DAOType.PROGRAM);
 
     @Override
-    public boolean add(ProgramDTO programDTO) {
+    public boolean add(Program program) {
         return programDAO.add(new Program(
-                programDTO.getId(),
-                programDTO.getProgramName(),
-                programDTO.getDuration(),
-                programDTO.getFee()
+                program.getId(),
+                program.getProgramName(),
+                program.getDuration(),
+                program.getFee()
         ));
     }
 
@@ -30,25 +30,27 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
-    public boolean update(ProgramDTO programDTO) {
+    public boolean update(Program program) {
         return false;
     }
 
     @Override
-    public List<ProgramDTO> getAll() {
-
+    public List<Program> getAll() {
+        System.out.println("1");
         List<Program> allProgram = programDAO.getAll();
-        ArrayList<ProgramDTO> dtoList = new ArrayList<>();
+        List<Program> List = new ArrayList<>();
 
         for (Program program : allProgram) {
-            dtoList.add(new ProgramDTO(
+            List.add(new Program(
                     program.getId(),
                     program.getProgramName(),
                     program.getDuration(),
                     program.getFee()
             ));
+
         }
-        return dtoList;
+        return List;
+
     }
 
     @Override
@@ -59,5 +61,10 @@ public class ProgramBOImpl implements ProgramBO {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public int getCount() throws Exception {
+        return 0;
     }
 }

@@ -13,6 +13,7 @@ import lk.ijse.regsystem.hibernate.business.BOFactory;
 import lk.ijse.regsystem.hibernate.business.BOType;
 import lk.ijse.regsystem.hibernate.business.custom.impl.ProgramBOImpl;
 import lk.ijse.regsystem.hibernate.dto.ProgramDTO;
+import lk.ijse.regsystem.hibernate.entity.Program;
 
 import java.io.IOException;
 
@@ -40,7 +41,7 @@ public class AddNewCourseStreamFormController {
         String programDuration = txtProgramDuration.getText();
         Double fee = Double.parseDouble(txtProgramFees.getText());
         try {
-            if(programBO.add(new ProgramDTO(
+            if(programBO.add(new Program(
                     programID,programName,programDuration,fee
             )));{
                 new Alert(Alert.AlertType.CONFIRMATION,"Register Program .?").showAndWait();

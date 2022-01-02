@@ -14,6 +14,7 @@ import lk.ijse.regsystem.hibernate.business.BOType;
 import lk.ijse.regsystem.hibernate.business.custom.impl.StudentBOImpl;
 import lk.ijse.regsystem.hibernate.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.regsystem.hibernate.dto.StudentDTO;
+import lk.ijse.regsystem.hibernate.entity.Student;
 
 import java.io.IOException;
 
@@ -44,7 +45,7 @@ public class AddNewStudentFormController {
         String email = txtStudentEmail.getText();
         String dob = txtDOB.getText();
         try {
-            if (studentBO.add(new StudentDTO(
+            if (studentBO.add(new Student(
                     id,name,address,contact,email,dob
             )));{
                 new Alert(Alert.AlertType.CONFIRMATION,"Register Student.?").showAndWait();

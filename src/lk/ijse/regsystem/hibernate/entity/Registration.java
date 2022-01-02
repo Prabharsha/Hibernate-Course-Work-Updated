@@ -1,38 +1,41 @@
 package lk.ijse.regsystem.hibernate.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class Registration implements SuperEntity{
+public class Registration implements SuperEntity {
     @Id
-    private String StudentID;
-    private String ProgramID;
+    private String regNo;
     private String RegisteredDate;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Student student;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Program> programs;
+
 
     public Registration() {
     }
 
-    public Registration(String studentID, String programID, String registeredDate) {
-        StudentID = studentID;
-        ProgramID = programID;
+    public Registration(String regNo, String registeredDate, Student student) {
+        this.regNo = regNo;
         RegisteredDate = registeredDate;
+        this.student = student;
     }
 
-    public String getStudentID() {
-        return StudentID;
+    public Registration(String regNo, String registeredDate, Student student, List<Program> programs) {
+        this.regNo = regNo;
+        RegisteredDate = registeredDate;
+        this.student = student;
+        this.programs = programs;
     }
 
-    public void setStudentID(String studentID) {
-        StudentID = studentID;
+    public String getRegNo() {
+        return regNo;
     }
 
-    public String getProgramID() {
-        return ProgramID;
-    }
-
-    public void setProgramID(String programID) {
-        ProgramID = programID;
+    public void setRegNo(String regNo) {
+        this.regNo = regNo;
     }
 
     public String getRegisteredDate() {
@@ -41,5 +44,21 @@ public class Registration implements SuperEntity{
 
     public void setRegisteredDate(String registeredDate) {
         RegisteredDate = registeredDate;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public List<Program> getPrograms() {
+        return programs;
+    }
+
+    public void setPrograms(List<Program> programs) {
+        this.programs = programs;
     }
 }

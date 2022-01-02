@@ -47,4 +47,14 @@ public class ProgramDTO {
     public void setFee(Double fee) {
         Fee = fee;
     }
+
+    @Override
+    public String toString() {
+        return "ProgramDTO{" +
+                "Id='" + Id + '\'' +
+                ", ProgramName='" + ProgramName + '\'' +
+                ", Duration='" + Duration + '\'' +
+                ", Fee=" + Fee +
+                '}';
+    }
 }

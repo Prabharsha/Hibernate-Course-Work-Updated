@@ -2,6 +2,8 @@ package lk.ijse.regsystem.hibernate.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Student implements SuperEntity {
@@ -13,6 +15,8 @@ public class Student implements SuperEntity {
     private String Email;
     private String DateOfBirth;
 
+    @OneToMany(mappedBy="student")
+    private List<Registration> registrationList;
     public Student() {
     }
 
@@ -23,6 +27,16 @@ public class Student implements SuperEntity {
         setContact(contact);
         setEmail(email);
         setDateOfBirth(dateOfBirth);
+    }
+
+    public Student(String id, String name, String address, String contact, String email, String dateOfBirth, List<Registration> registrationList) {
+        setId(id);
+        setName(name);
+        setAddress(address);
+        setContact(contact);
+        setEmail(email);
+        setDateOfBirth(dateOfBirth);
+        this.setRegistrationList(registrationList);
     }
 
     public String getId() {
@@ -71,5 +85,13 @@ public class Student implements SuperEntity {
 
     public void setDateOfBirth(String dateOfBirth) {
         DateOfBirth = dateOfBirth;
+    }
+
+    public List<Registration> getRegistrationList() {
+        return registrationList;
+    }
+
+    public void setRegistrationList(List<Registration> registrationList) {
+        this.registrationList = registrationList;
     }
 }

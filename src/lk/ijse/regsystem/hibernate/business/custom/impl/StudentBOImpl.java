@@ -14,14 +14,14 @@ public class StudentBOImpl implements StudentBO {
     StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOType.STUDENT);
 
     @Override
-    public boolean add(StudentDTO studentDTO) {
+    public boolean add(Student student) {
         return studentDAO.add(new Student(
-                studentDTO.getId(),
-                studentDTO.getName(),
-                studentDTO.getAddress(),
-                studentDTO.getContact(),
-                studentDTO.getEmail(),
-                studentDTO.getDateOfBirth()
+                student.getId(),
+                student.getName(),
+                student.getAddress(),
+                student.getContact(),
+                student.getEmail(),
+                student.getDateOfBirth()
         ));
     }
 
@@ -31,18 +31,18 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean update(StudentDTO studentDTO) {
+    public boolean update(Student student) {
         return false;
     }
 
     @Override
-    public List<StudentDTO> getAll() {
+    public List<Student> getAll() {
 
         List<Student> allStudent = studentDAO.getAll();
-        ArrayList<StudentDTO> dtoList = new ArrayList<>();
+        ArrayList<Student> List = new ArrayList<>();
 
         for (Student student : allStudent) {
-            dtoList.add(new StudentDTO(
+            List.add(new Student(
                     student.getId(),
                     student.getName(),
                     student.getAddress(),
@@ -51,7 +51,7 @@ public class StudentBOImpl implements StudentBO {
                     student.getDateOfBirth()
             ));
         }
-        return dtoList;
+        return List;
     }
 
     @Override
@@ -62,5 +62,11 @@ public class StudentBOImpl implements StudentBO {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public int getCount() throws Exception {
+        int count = studentDAO.getCount();
+        return count;
     }
 }

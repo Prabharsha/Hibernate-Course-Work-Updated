@@ -2,13 +2,14 @@ package lk.ijse.regsystem.hibernate.dao.custom.impl;
 
 import lk.ijse.regsystem.hibernate.dao.custom.ProgramDAO;
 import lk.ijse.regsystem.hibernate.entity.Program;
-import lk.ijse.regsystem.hibernate.entity.Student;
 import lk.ijse.regsystem.hibernate.util.FactoryConfiguration;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.hibernate.transform.AliasToEntityMapResultTransformer;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProgramDAOImpl implements ProgramDAO {
@@ -57,12 +58,18 @@ public class ProgramDAOImpl implements ProgramDAO {
     public List<Program> getAll() {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-
-        List<Program> programList = null;
-        Query programs = session.createQuery("from Program ");
-        programList = programs.list();
+        Query query = session.createQuery("from Program ");
+        List list = query.list();
         transaction.commit();
+        System.out.println("2");
         session.close();
-        return programList;
+        return list;
     }
+
+    @Override
+    public int getCount() throws Exception {
+        return 0;
+    }
+
+
 }

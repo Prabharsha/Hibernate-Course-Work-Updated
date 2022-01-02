@@ -16,9 +16,9 @@
       <Pane prefHeight="105.0" prefWidth="848.0" style="-fx-background-color: #ff3838;">
          <children>
             <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="16.0" layoutY="37.0" onMouseClicked="#goBackOnAction" prefHeight="31.0" prefWidth="111.0" style="-fx-background-color: #fff200; -fx-background-radius: 10;" text="Back" />
-            <Label layoutX="320.0" layoutY="48.0" text="Program Details" textFill="#030011">
+            <Label layoutX="350.0" layoutY="42.0" text="Details" textFill="#0b0040">
                <font>
-                  <Font name="Bell MT Bold" size="34.0" />
+                  <Font name="Elephant" size="41.0" />
                </font>
             </Label>
          </children>
@@ -29,12 +29,12 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="547.0">
                      <children>
-                        <JFXComboBox focusColor="#00ff45" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="208.0" promptText="Select Program" unFocusColor="RED" />
-                        <TableView layoutX="18.0" layoutY="64.0" prefHeight="346.0" prefWidth="802.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                        <JFXComboBox fx:id="cmbSelectProgram" focusColor="#00ff45" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="208.0" promptText="Select Program" unFocusColor="RED" />
+                        <TableView fx:id="tblRegistrationDetails" layoutX="18.0" layoutY="64.0" prefHeight="346.0" prefWidth="802.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                           <columns>
-                            <TableColumn prefWidth="248.0" text="Student Id" />
-                            <TableColumn prefWidth="352.0" text="Program ID" />
-                              <TableColumn prefWidth="201.0" text="Registered Date" />
+                            <TableColumn fx:id="colRegStudentID" prefWidth="248.0" text="Student Id" />
+                            <TableColumn fx:id="colRegProgramName" prefWidth="352.0" text="Program Name" />
+                              <TableColumn fx:id="colRegDate" prefWidth="201.0" text="Registered Date" />
                           </columns>
                         </TableView>
                      </children>
@@ -45,12 +45,12 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="14.0" layoutY="14.0" prefHeight="365.0" prefWidth="798.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="7.0">
+                        <TableView fx:id="tblProgramDetails" layoutX="14.0" layoutY="14.0" prefHeight="365.0" prefWidth="798.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="7.0">
                           <columns>
-                            <TableColumn prefWidth="163.0" text="Program ID" />
-                            <TableColumn prefWidth="260.0" text="Program Description" />
-                              <TableColumn prefWidth="176.0" text="Duration" />
-                              <TableColumn prefWidth="198.0" text="Fee (LKR)" />
+                            <TableColumn fx:id="colProgramID" prefWidth="165.0" text="Program ID" />
+                            <TableColumn fx:id="colProDescription" prefWidth="258.0" text="Program Name" />
+                              <TableColumn fx:id="colProDuration" prefWidth="176.0" text="Duration" />
+                              <TableColumn fx:id="colProFee" prefWidth="198.0" text="Fee (LKR)" />
                           </columns>
                         </TableView>
                         <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="377.0" onMouseClicked="#addNewProgramOnAction" prefHeight="31.0" prefWidth="188.0" style="-fx-background-color: #32ff7e; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #3ae374;" text="+ Add New Program " />
@@ -58,6 +58,24 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Student Details">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblStudentDetails" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="10.0">
+                          <columns>
+                            <TableColumn fx:id="colSTDStudentID" prefWidth="131.0" text="Student ID" />
+                            <TableColumn fx:id="colSTDName" prefWidth="136.0" text="Student Name" />
+                              <TableColumn fx:id="colSTDAddress" prefWidth="131.0" text="Address" />
+                              <TableColumn fx:id="colSTDContact" prefWidth="131.0" text="Contact" />
+                              <TableColumn fx:id="colSTDEmail" prefWidth="153.0" text="E-mail" />
+                              <TableColumn fx:id="colSTDDob" prefWidth="121.0" text="DOB" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
