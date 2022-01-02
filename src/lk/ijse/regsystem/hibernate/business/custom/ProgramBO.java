@@ -17,6 +17,6 @@ public interface ProgramBO extends SuperBO {
 
     public Program find(String id) throws Exception;
 
-    public int getCount() throws Exception;
+    public String getCount() throws Exception;
 }
 

@@ -1,33 +1,23 @@
-package lk.ijse.regsystem.hibernate.entity;
+package lk.ijse.regsystem.hibernate.dto;
+import lk.ijse.regsystem.hibernate.entity.Program;
+import lk.ijse.regsystem.hibernate.entity.Student;
 
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
-public class Registration implements SuperEntity {
-    @Id
+public class RegistrationDTO {
     private String regNo;
     private String RegisteredDate;
-    @ManyToOne(cascade = CascadeType.ALL)
     private Student student;
-    @ManyToMany(cascade = CascadeType.ALL)
     private List<Program> programs;
 
-
-    public Registration() {
+    public RegistrationDTO() {
     }
 
-    public Registration(String regNo, String registeredDate, Student student) {
-        this.regNo = regNo;
-        this.RegisteredDate = registeredDate;
-        this.student = student;
-    }
-
-    public Registration(String regNo, String registeredDate, Student student, List<Program> programs) {
-        this.regNo = regNo;
-        this.RegisteredDate = registeredDate;
-        this.student = student;
-        this.programs = programs;
+    public RegistrationDTO(String regNo, String registeredDate, Student student, List<Program> programs) {
+        this.setRegNo(regNo);
+        setRegisteredDate(registeredDate);
+        this.setStudent(student);
+        this.setPrograms(programs);
     }
 
     public String getRegNo() {

@@ -24,6 +24,8 @@ import lk.ijse.regsystem.hibernate.entity.Student;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
@@ -61,7 +63,7 @@ public class RegistrationFormController implements Initializable {
 
             for (Student student : allStudent) {
                 allStudentId.add(
-                        student.getId()
+                        student.getsId()
                 );
             }
 
@@ -81,8 +83,13 @@ public class RegistrationFormController implements Initializable {
 //listeners
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
         if (newValue!=null){
-         btnNewStudent.setDisable(true);  
+         btnNewStudent.setDisable(true);
          setStudentDetails(newValue);
+        }
+        if(newValue!=null && !cmbCourseStream.getSelectionModel().isEmpty() && paymentCheckBox.isSelected()){
+            btnRegister.setDisable(false);
+        }else {
+            btnRegister.setDisable(true);
         }
         });
 
@@ -91,7 +98,20 @@ public class RegistrationFormController implements Initializable {
                setProgramDetails(newValue);
 
                 }
+            if(newValue!=null && !cmbStudentId.getSelectionModel().isEmpty() && paymentCheckBox.isSelected()){
+                btnRegister.setDisable(false);
+
+            }else {
+                btnRegister.setDisable(true);
+            }
         } );
+        paymentCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue==true && !cmbStudentId.getSelectionModel().isEmpty() && !cmbCourseStream.getSelectionModel().isEmpty() ){
+                btnRegister.setDisable(false);
+            }else {
+                btnRegister.setDisable(true);
+            }
+        });
     }
 
     private void setProgramDetails(String newValue) {
@@ -129,7 +149,13 @@ public class RegistrationFormController implements Initializable {
     }
 
     public void registerOnAction(MouseEvent mouseEvent) {
+        try {
+            String date = String.valueOf(LocalDate.now());
+            System.out.println(date);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void setScene() {

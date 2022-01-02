@@ -16,5 +16,5 @@ public interface SuperDAO<Entity extends SuperEntity, ID> {
 
     public List<Entity> getAll()throws Exception;
 
-    public int getCount() throws Exception;
+    public String getCount() throws Exception;
 }

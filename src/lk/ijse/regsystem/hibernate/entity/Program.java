@@ -13,7 +13,7 @@ public class Program implements SuperEntity {
     private String ProgramName;
     private String Duration;
     private Double Fee;
-    @ManyToMany(mappedBy = "program")
+    @ManyToMany(mappedBy = "programs")
     private List<Registration> registrationList;
 
     public Program() {

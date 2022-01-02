@@ -16,7 +16,7 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean add(Student student) {
         return studentDAO.add(new Student(
-                student.getId(),
+                student.getsId(),
                 student.getName(),
                 student.getAddress(),
                 student.getContact(),
@@ -43,7 +43,7 @@ public class StudentBOImpl implements StudentBO {
 
         for (Student student : allStudent) {
             List.add(new Student(
-                    student.getId(),
+                    student.getsId(),
                     student.getName(),
                     student.getAddress(),
                     student.getContact(),
@@ -51,6 +51,8 @@ public class StudentBOImpl implements StudentBO {
                     student.getDateOfBirth()
             ));
         }
+        System.out.println(List.get(0).getsId());
+        System.out.println(List.get(1).getsId());
         return List;
     }
 
@@ -65,8 +67,8 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public int getCount() throws Exception {
-        int count = studentDAO.getCount();
+    public String getCount() throws Exception {
+        String count = studentDAO.getCount();
         return count;
     }
 }

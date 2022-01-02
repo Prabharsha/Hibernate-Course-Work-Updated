@@ -15,7 +15,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.ijse.regsystem.hibernate.business.BOFactory;
 import lk.ijse.regsystem.hibernate.business.BOType;
+import lk.ijse.regsystem.hibernate.business.custom.impl.ProgramBOImpl;
 import lk.ijse.regsystem.hibernate.business.custom.impl.StudentBOImpl;
+import lk.ijse.regsystem.hibernate.dao.custom.impl.ProgramDAOImpl;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,11 +36,14 @@ public class DashBoardFromController implements Initializable {
     public AnchorPane dashboardContext;
     Parent root = null;
     StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
+    ProgramBOImpl programBO =BOFactory.getInstance().getBO(BOType.PROGRAM);
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            lblNoOfRegStudents.setText(String.valueOf(studentBO.getCount()));
+            lblNoOfRegStudents.setText(studentBO.getCount());
+            lblNoOfCourses.setText(programBO.getCount());
         } catch (Exception e) {
             e.printStackTrace();
         }

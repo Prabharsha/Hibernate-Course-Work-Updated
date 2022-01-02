@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Student implements SuperEntity {
     @Id
-    private String Id;
+    private String sId;
     private String Name;
     private String Address;
     private String Contact;
@@ -20,31 +20,31 @@ public class Student implements SuperEntity {
     public Student() {
     }
 
-    public Student(String id, String name, String address, String contact, String email, String dateOfBirth) {
-        setId(id);
-        setName(name);
-        setAddress(address);
-        setContact(contact);
-        setEmail(email);
-        setDateOfBirth(dateOfBirth);
+    public Student(String sId, String name, String address, String contact, String email, String dateOfBirth) {
+        this.sId = sId;
+        Name = name;
+        Address = address;
+        Contact = contact;
+        Email = email;
+        DateOfBirth = dateOfBirth;
     }
 
-    public Student(String id, String name, String address, String contact, String email, String dateOfBirth, List<Registration> registrationList) {
-        setId(id);
-        setName(name);
-        setAddress(address);
-        setContact(contact);
-        setEmail(email);
-        setDateOfBirth(dateOfBirth);
-        this.setRegistrationList(registrationList);
+    public Student(String sId, String name, String address, String contact, String email, String dateOfBirth, List<Registration> registrationList) {
+        this.sId = sId;
+        Name = name;
+        Address = address;
+        Contact = contact;
+        Email = email;
+        DateOfBirth = dateOfBirth;
+        this.registrationList = registrationList;
     }
 
-    public String getId() {
-        return Id;
+    public String getsId() {
+        return sId;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void setsId(String sId) {
+        this.sId = sId;
     }
 
     public String getName() {

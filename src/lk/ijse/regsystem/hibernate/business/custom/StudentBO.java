@@ -17,5 +17,5 @@ public interface StudentBO extends SuperBO {
 
     public Student find(String id) throws Exception;
 
-    public int getCount() throws Exception;
+    public String getCount() throws Exception;
 }

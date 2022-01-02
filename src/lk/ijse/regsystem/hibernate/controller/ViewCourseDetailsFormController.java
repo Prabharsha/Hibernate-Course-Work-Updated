@@ -40,12 +40,12 @@ public class ViewCourseDetailsFormController implements Initializable {
     public TableColumn colProDuration;
     public TableColumn colProFee;
     public TableView tblStudentDetails;
-    public TableColumn colSTDStudentID;
     public TableColumn colSTDName;
     public TableColumn colSTDAddress;
     public TableColumn colSTDContact;
     public TableColumn colSTDEmail;
     public TableColumn colSTDDob;
+    public TableColumn colStudentId;
     Parent root = null;
     List<Program> programs;
     List<Student> students;
@@ -66,7 +66,7 @@ public class ViewCourseDetailsFormController implements Initializable {
         colProFee.setCellValueFactory(new PropertyValueFactory<>("Fee"));
 
         //tbl Student Details
-        colSTDStudentID.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("sId"));
         colSTDName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colSTDAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
         colSTDContact.setCellValueFactory(new PropertyValueFactory<>("Contact"));

@@ -72,14 +72,13 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public int getCount() throws Exception {
+    public String getCount() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        Query query = session.createQuery("select count(Id) from Student ");
-
-        /*Iterator count = query.iterate();
-        System.out.println(count.next());*/
-        System.out.println();
-        return 0;
+        NativeQuery query = session.createSQLQuery("select count(sId) from Student ");
+        List<Integer> list = query.list();
+        transaction.commit();
+        session.close();
+        return String.valueOf(list.get(0));
     }
 }

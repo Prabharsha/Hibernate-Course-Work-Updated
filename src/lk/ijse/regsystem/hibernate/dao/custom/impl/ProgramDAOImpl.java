@@ -6,6 +6,7 @@ import lk.ijse.regsystem.hibernate.util.FactoryConfiguration;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 
@@ -61,14 +62,20 @@ public class ProgramDAOImpl implements ProgramDAO {
         Query query = session.createQuery("from Program ");
         List list = query.list();
         transaction.commit();
-        System.out.println("2");
         session.close();
         return list;
     }
 
     @Override
-    public int getCount() throws Exception {
-        return 0;
+    public String getCount() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        NativeQuery query = session.createSQLQuery("select count(Id) from Program");
+        List list = query.list();
+        transaction.commit();
+        session.close();
+        return String.valueOf(list.get(0));
+        
     }
 
 

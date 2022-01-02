@@ -36,7 +36,6 @@ public class ProgramBOImpl implements ProgramBO {
 
     @Override
     public List<Program> getAll() {
-        System.out.println("1");
         List<Program> allProgram = programDAO.getAll();
         List<Program> List = new ArrayList<>();
 
@@ -64,7 +63,8 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
-    public int getCount() throws Exception {
-        return 0;
+    public String getCount() throws Exception {
+        String getCount = programDAO.getCount();
+        return getCount;
     }
 }
